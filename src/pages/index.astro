@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, CollectionEntry } from "astro:content";
+
+import heroImage from "../assets/images/headshot.jpg";
+
+// component imports
+import MainLayout from "../layouts/MainLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import Link from "../components/Link.astro";
+
+// utils imports
+import { formatBlogPosts } from "../js/utils";
+
+const allPosts = await getCollection("blog");
+const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts, {
+  limit: 3,
+});
+---
+
+<MainLayout title="My Blog">
+  <section class="container about" aria-label="About Me">
+    <Image src={heroImage} alt="My headshot" width="300" height="400" />
+    <div class="content">
+      <h1 class="h1">My Blog</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam quidem
+        tempora beatae mollitia architecto optio sapiente repellendus natus.
+      </p>
+      <Link href="/about/" style="secondary" text="👋 About Me" />
+    </div>
+  </section>
+  <section class="container" aria-label="New Blog Posts">
+    <h2 class="h1">New Blog Posts</h2>
+    <div class="post-container">
+      {
+        formattedPosts.map((post) => (
+          <PostCard data={post.data} url={post.slug} tagType="h3" />
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>

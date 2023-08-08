@@ -1,0 +1,30 @@
+{
+  "name": "@example/minimal",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^2.2.1",
+    "@astrojs/rss": "^2.4.4",
+    "@astrojs/sitemap": "^2.0.1",
+    "@types/react": "^18.2.18",
+    "@types/react-dom": "^18.2.7",
+    "astro": "^2.10.3",
+    "astro-icon": "^0.8.1",
+    "postcss": "^8.4.27",
+    "postcss-preset-env": "^9.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.32.4"
+  }
+}
