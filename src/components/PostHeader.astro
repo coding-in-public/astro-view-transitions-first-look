@@ -10,11 +10,11 @@ const { category, title, author, date, image, url } = Astro.props;
 
 <header>
   <div class="container">
-    <small>
+    <small transition:name={`cat-${url}`}>
       <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
     </small>
-    <h1 class="h2">{title}</h1>
-    <p>
+    <h1 class="h2" transition:name={`title-${url}`}>{title}</h1>
+    <p transition:name={`meta-${url}`}>
       by <a href={`/author/${slugify(author)}/`}>{author}</a> • {
         formatDate(date)
       }
@@ -26,5 +26,6 @@ const { category, title, author, date, image, url } = Astro.props;
     width="1200"
     height="600"
     class="hero-image"
+    transition:name={`image-${url}`}
   />
 </header>

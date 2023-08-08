@@ -16,7 +16,7 @@ const { title, date, author, image, description, category } = data;
 ---
 
 <article class="card">
-  <small>
+  <small transition:name={`cat-${url}`}>
     <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
   </small>
   <a href={`/blog/${url}/`} aria-hidden="true" tabindex="-1">
@@ -26,14 +26,15 @@ const { title, date, author, image, description, category } = data;
       width="400"
       height="250"
       quality={"high"}
+      transition:name={`image-${url}`}
     />
   </a>
   <div class="content">
     <div>
-      <Tag class="h3">
+      <Tag class="h3" transition:name={`title-${url}`}>
         <a href={`/blog/${url}/`}>{title}</a>
       </Tag>
-      <small>
+      <small transition:name={`meta-${url}`}>
         by <a href={`/author/${slugify(author)}/`}>{author}</a> • {
           formatDate(date)
         }

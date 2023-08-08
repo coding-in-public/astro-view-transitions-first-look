@@ -11,6 +11,7 @@ export default defineConfig({
   site: "https://astro-blog-cip.netlify.app",
   experimental: {
     assets: true,
+    viewTransitions: true,
   },
   image: {
     service: sharpImageService(),
