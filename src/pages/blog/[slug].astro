@@ -43,7 +43,14 @@ const relatedPosts = formattedPosts
 ---
 
 <MainLayout {title} {description} image={image} {post.data}>
-  <PostHeader {title} {description} {date} {category} {image} {author} />
+  <PostHeader
+    title={title}
+    date={date}
+    category={category}
+    image={image}
+    author={author}
+    url={post.slug}
+  />
   <div class="post-content">
     <div class="content">
       <Content />
